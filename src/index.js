@@ -5,6 +5,9 @@ if(process.env.NODE_ENV === 'development'){
 
 const exprees = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
+
+const config = require('./config');
 
 //Inisilizacion
 const app = exprees();
@@ -16,6 +19,9 @@ app.set('port', process.env.PORT || 3000);
 //Middlewares
 app.use(exprees.json());
 app.use(morgan('dev'));
+app.use(cors(
+    config.application.cors.server
+  ));
 
 //Rutas
 app.use(require('./routes/product'));
