@@ -1,7 +1,7 @@
+//Se utiliza para llamar al config solo cuando nos encontremos en desarrollo
 if(process.env.NODE_ENV === 'development'){
     require('dotenv').config();
 }
-
 
 const exprees = require('express');
 const morgan = require('morgan');
@@ -14,14 +14,12 @@ const app = exprees();
 //require('./database');
 
 //Configuracion
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000); // se utilizara un purto por defecto en este caso 3000 o el host entregara uno
 
 //Middlewares
 app.use(exprees.json());
-app.use(morgan('dev'));
-app.use(cors(
-    config.application.cors.server
-  ));
+app.use(morgan('dev')); //nos va dando reportes mientras se hacen consultas en desarrollo
+app.use(cors(config.application.cors.server)); //configuraciones de cors
 
 //Rutas
 app.use(require('./routes/product'));

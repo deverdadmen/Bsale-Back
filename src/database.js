@@ -1,14 +1,11 @@
 const mysql = require('mysql')
 
 
-
 const mysqlConnection = mysql.createConnection({
-    
-    host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
-    user: 'bsale_test',
-    password: 'bsale_test',
-    database: 'bsale_test',
-
+    host: process.env.DB_HOST,  //direccion de host
+    user: process.env.DB_USER,  // user de acceso
+    password: process.env.DB_PASSWORD, // clave de acceso
+    database: process.env.DB_DATABASE, // base de datos a la cual se realizaran las consultas
 });
 
 mysqlConnection.connect( function (err) {
