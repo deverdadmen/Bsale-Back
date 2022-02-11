@@ -3,7 +3,7 @@ const config = {
         cors: {
             server: [
                 {
-                    origin: "*", //servidor que deseas que consuma o (*) en caso que sea acceso libre
+                    origin: "*", //Servidor que decia consumir (https://bsaleapiback.herokuapp.com) o (*) en este caso para que sea libre
                     credentials: true
                 }
             ]
